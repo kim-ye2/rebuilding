@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <link href="/favicon.ico" rel="icon">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>PSK admin</title>
+    <meta content="website" property="og:type">
+    <meta content="template" property="og:url">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- css -->
+    <link rel="stylesheet" crossorigin="" href="../../css/default.css">
+    <link rel="stylesheet" href="../../css/style.css">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0"
+        rel="stylesheet" />
+    <!-- jq -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            function bindPcNavHover() {
+                const isPc = $(window).width() >= 720;
+
+                if (isPc) {
+                    $('.nav_1depth')
+                    .off('.pcNav') // 중복 바인딩 방지
+                    .on('mouseenter.pcNav', function () {
+                        $(this).children('.nav_2depth').stop(true, true).slideDown(200);
+                    })
+                    .on('mouseleave.pcNav', function () {
+                        $(this).children('.nav_2depth').stop(true, true).slideUp(200);
+                    });
+                } else {
+                    $('.nav_1depth').off('.pcNav');
+                    $('.nav_2depth').removeAttr('style'); // 열려있던 메뉴 초기화
+                }
+            }
+
+            // 최초 실행
+            bindPcNavHover();
+
+            // 화면 크기 변경 시 다시 적용
+            $(window).on('resize', bindPcNavHover);
+
+            $('body').removeClass('no-scroll');
+            $('.nav_open').click(function () {
+                $(this).toggleClass('active');
+                $('nav > ul').toggleClass('open');
+
+                if ($(this).hasClass('active')) {
+                    $('body').addClass('no-scroll');
+                } else {
+                    $('body').removeClass('no-scroll');
+                }
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="admin">
+            <header>
+                <h1 class="logo"><img src="../../images/logo.svg" alt=""></h1>
+                <nav>
+                    <ul>
+                        <li class="nav_1depth">
+                            <a href="">홈</a>
+                        </li>
+                        <li class="nav_1depth">
+                            <a href="../../member/general/list.html">회원관리</a>
+                        </li>
+                        <li class="nav_1depth">
+                            <a href="">상품관리</a>
+                        </li>
+                        <li class="nav_1depth">
+                            <a href="../../reservation/golf/list.html">예약관리</a>
+                        </li>
+                        <li class="nav_1depth">
+                            <a href="../../membership/membership/application.html">멤버십/쿠폰관리</a>
+                        </li>
+                        
+                        <li class="nav_1depth">
+                            <a href="../../board/notice/list.html">게시판관리</a>
+                        </li>
+                        <li class="nav_1depth">
+                            <a href="">시스템관리</a>
+                        </li>
+                        <li class="nav_1depth">
+                            <a href="../../inquiry/list.html">상담관리</a>
+                        </li>
+                    </ul>
+                    <div class="nav_mobile_wrap">
+                        <div class="nav_open">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="nav_mobile_bg">
+                        </div>
+                    </div>
+                </nav>
+                <div class="logout">
+                    <p>관리자(admin)</p>
+                    <button class="btn_under">로그아웃</button>
+                </div>
+            </header>
+            <div class="cont">
+                <div class="lnb">
+                    <div class="lnb_tit">
+                        <h2>멤버십/쿠폰관리</h2>
+                    </div>
+                    <ul>
+                        <li class="lnb_1depth active">
+                            <a href="../../membership/membership/application.html">멤버십 신청내역</a>
+                        </li>
+                        <li class="lnb_1depth">
+                            <a href="../../membership/membership/list.html">회원 멤버십 관리</a>
+                        </li>
+                        <li class="lnb_1depth">
+                            <a href="../../membership/membership/grade.html">멤버십 등급 기준</a>
+                        </li>
+                        <li class="lnb_1depth">
+                            <a href="../../membership/membership/benefit.html">멤버십 등급별 혜택</a>
+                        </li>
+                        <li class="lnb_1depth">
+                            <a href="../../membership/coupon/setting.html">쿠폰 관리</a>
+                        </li>
+                        <li class="lnb_1depth">
+                            <a href="../../membership/coupon/status.html">쿠폰 사용 현황</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <h3 class="adm_title">멤버십 신청내역</h3>
+                    <div class="search">
+                        <div class="search_input">
+                            <h5>회원구분</h5>
+                            <select name="" id="">
+                                <option value="">전체</option>
+                                <option value="">일반회원</option>
+                                <option value="">기업회원</option>
+                            </select>
+                        </div>
+                        <div class="search_input">
+                            <h5>신청구분</h5>
+                            <select name="" id="">
+                                <option value="">전체</option>
+                                <option value="">신규</option>
+                                <option value="">갱신</option>
+                            </select>
+                        </div>
+                        <div class="search_input">
+                            <h5>상태</h5>
+                            <select name="" id="">
+                                <option value="">전체</option>
+                                <option value="">접수</option>
+                                <option value="">승인</option>
+                                <option value="">반려</option>
+                            </select>
+                        </div>
+                        <div class="search_input">
+                            <h5>신청일</h5>
+                            <div class="flex gap_sm">
+                                <input type="date">
+                                <span>~</span>
+                                <input type="date">
+                            </div>
+                        </div>
+                        <div class="search_input">
+                            <h5>검색</h5>
+                            <div class="flex">
+                                <select name="" id="">
+                                    <option value="">전체</option>
+                                    <option value="">신청자명</option>
+                                </select>
+                                <input type="text">
+                            </div>
+                        </div>
+                        <button class="btn_md">검색</button>
+                    </div>
+                    <div class="line"></div>
+                    <div>
+                        <p class="caption">조회건수 212 건</p>
+                        <div class="table_wrap">
+                            <table class="table_b">
+                                <thead>
+                                    <tr>
+                                        <th>No.</th>
+                                        <th>회원구분</th>
+                                        <th>신청구분</th>
+                                        <th>아이디</th>
+                                        <th>이름</th>
+                                        <th>신청자 연락처</th>
+                                        <th>신청자 이메일</th>
+                                        <th>신청일</th>
+                                        <th>처리일</th>
+                                        <th>상태</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>212</td>
+                                        <td>일반회원</td>
+                                        <td>신규</td>
+                                        <td>Hong</td>
+                                        <td>홍길동</td>
+                                        <td>010-1542-1551</td>
+                                        <td>sample@naver.com</td>
+                                        <td>2025.08.01</td>
+                                        <td>-</td>
+                                        <td>
+                                            <a href="javascript:void()" class="btn_under" onclick="modalOpen('detailGeneral')">접수</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>212</td>
+                                        <td>기업회원</td>
+                                        <td>갱신</td>
+                                        <td>Hong</td>
+                                        <td>홍길동</td>
+                                        <td>010-1542-1551</td>
+                                        <td>sample@naver.com</td>
+                                        <td>2025.08.01</td>
+                                        <td>-</td>
+                                        <td>
+                                            <a href="javascript:void()" class="btn_under" onclick="modalOpen('detailEnterprise')">접수</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>212</td>
+                                        <td>일반회원</td>
+                                        <td>신규</td>
+                                        <td>Hong</td>
+                                        <td>홍길동</td>
+                                        <td>010-1542-1551</td>
+                                        <td>sample@naver.com</td>
+                                        <td>2025.07.31</td>
+                                        <td>2025.08.01</td>
+                                        <td>
+                                            <a href="javascript:void()" class="btn_under" onclick="modalOpen('detailGeneral')">승인</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="pagenation">
+                        <ul>
+                            <li class="arrow"><a href="?page=1">&laquo; 처음</a></li>
+                            <li class="arrow"><a href="?page=prev">&lsaquo; 이전</a></li>
+                            <li><a href="?page=1" class="active">1</a></li>
+                            <li><a href="?page=2">2</a></li>
+                            <li><a href="?page=3">3</a></li>
+                            <li><a href="?page=4">4</a></li>
+                            <li><a href="?page=5">5</a></li>
+                            <li><a href="?page=6">6</a></li>
+                            <li><a href="?page=7">7</a></li>
+                            <li class="arrow"><a href="?page=next">다음 &rsaquo;</a></li>
+                            <li class="arrow"><a href="?page=10">마지막 &raquo;</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- 일반회원 모달 //S -->
+            <div class="modal_wrap" id="detailGeneral">
+                <div class="modal">
+                    <h3 class="adm_title">신청내역 상세</h3>
+                    <div>
+                        <h4 class="adm_subtitle">신청자 정보</h4>
+                        <table class="table_a">
+                            <tr>
+                                <th>회원구분</th>
+                                <td>일반회원</td>
+                                <th>가입일</th>
+                                <td>2025.08.01</td>
+                            </tr>
+                            <tr>
+                                <th>아이디</th>
+                                <td>hong</td>
+                                <th>이름</th>
+                                <td>홍길동</td>
+                            </tr>
+                            <tr>
+                                <th>핸드폰번호</th>
+                                <td>010-5135-1542</td>
+                                <th>이메일 주소</th>
+                                <td>hong2034@naver.com</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <h4 class="adm_subtitle">멤버십 신청정보</h4>
+                        <table class="table_a">
+                            <tr>
+                                <th>가입구분</th>
+                                <td>신규</td>
+                                <th>신청일</th>
+                                <td>2025.08.01</td>
+                            </tr>
+                            <tr>
+                                <th>신청등급</th>
+                                <td colspan="3">Gold</td>
+                            </tr>
+                            <tr>
+                                <th>요청사항</th>
+                                <td colspan="3">신규가입</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <h4 class="adm_subtitle">상담정보</h4>
+                        <table class="table_a">
+                            <tr>
+                                <th>담당자</th>
+                                <td><input type="text"></td>
+                                <th>상담일자</th>
+                                <td><input type="date"></td>
+                            </tr>
+                            <tr>
+                                <th>상담이력</th>
+                                <td colspan="3">
+                                    <textarea name="" id=""></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <h4 class="adm_subtitle">최종협의</h4>
+                        <table class="table_a">
+                            <tr>
+                                <th>등급</th>
+                                <td>
+                                    <select name="" id="">
+                                        <option value="">선택</option>
+                                        <option value="">Gold</option>
+                                        <option value="">Platumun</option>
+                                        <option value="">VIP</option>
+                                        <option value="">VVIP</option>
+                                    </select>
+                                </td>
+                                <th>멤버십 기간</th>
+                                <td>
+                                    <div class="flex">
+                                        <input type="date">
+                                        <span>~</span>
+                                        <input type="date">
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal_btn_wrap">
+                        <button class="btn_md">저장</button>
+                        <button class="btn_md gray">취소</button>
+                    </div>
+                </div>
+            </div>
+            <!-- 일반회원 모달 //E -->
+            <!-- 기업회원 모달 //S -->
+            <div class="modal_wrap" id="detailEnterprise">
+                <div class="modal">
+                    <h3 class="adm_title">신청내역 상세</h3>
+                    <div>
+                        <h4 class="adm_subtitle">신청자 정보</h4>
+                        <table class="table_a">
+                            <tr>
+                                <th>회원구분</th>
+                                <td>기업회원</td>
+                                <th>가입일</th>
+                                <td>2025.08.01</td>
+                            </tr>
+                            <tr>
+                                <th>기업명</th>
+                                <td>삼성</td>
+                                <th>기업형태</th>
+                                <td>대기업</td>
+                            </tr>
+                            <tr>
+                                <th>사업자번호</th>
+                                <td>000-00-00000</td>
+                                <th>대표자명</th>
+                                <td>홍길동</td>
+                            </tr>
+                            <tr>
+                                <th>기업대표전화</th>
+                                <td>070-1234-5678</td>
+                                <th>이메일 주소</th>
+                                <td>hong2034@naver.com</td>
+                            </tr>
+                            <tr>
+                                <th>아이디</th>
+                                <td>hong</td>
+                                <th>이름</th>
+                                <td>홍길동</td>
+                            </tr>
+                            <tr>
+                                <th>담당자 연락처</th>
+                                <td>010-7777-7777</td>
+                                <th>담당자 이메일 주소</th>
+                                <td>hong2034@naver.com</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <h4 class="adm_subtitle">멤버십 신청정보</h4>
+                        <table class="table_a">
+                            <tr>
+                                <th>가입구분</th>
+                                <td>신규</td>
+                                <th>신청일</th>
+                                <td>2025.08.01</td>
+                            </tr>
+                            <tr>
+                                <th>신청등급</th>
+                                <td colspan="3">Gold</td>
+                            </tr>
+                            <tr>
+                                <th>요청사항</th>
+                                <td colspan="3">신규가입</td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <h4 class="adm_subtitle">상담정보</h4>
+                        <table class="table_a">
+                            <tr>
+                                <th>담당자</th>
+                                <td><input type="text"></td>
+                                <th>상담일자</th>
+                                <td><input type="date"></td>
+                            </tr>
+                            <tr>
+                                <th>상담이력</th>
+                                <td colspan="3">
+                                    <textarea name="" id=""></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div>
+                        <h4 class="adm_subtitle">최종협의</h4>
+                        <table class="table_a">
+                            <tr>
+                                <th>등급</th>
+                                <td>
+                                    <select name="" id="">
+                                        <option value="">선택</option>
+                                        <option value="">Gold</option>
+                                        <option value="">Platumun</option>
+                                        <option value="">VIP</option>
+                                        <option value="">VVIP</option>
+                                    </select>
+                                </td>
+                                <th>멤버십 기간</th>
+                                <td>
+                                    <div class="flex">
+                                        <input type="date">
+                                        <span>~</span>
+                                        <input type="date">
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                    <div class="modal_btn_wrap">
+                        <button class="btn_md">저장</button>
+                        <button class="btn_md gray">취소</button>
+                    </div>
+                </div>
+            </div>
+            <!-- 일반회원 모달 //E -->
+        </div>
+    </div>
+</body>
+
+
+</html>
+<script>
+    function modalOpen(id) {
+        document.querySelectorAll('.modal_wrap').forEach(m => m.style.display = 'none');
+        document.getElementById(id).style.display = 'flex';
+    }
+
+    document.querySelectorAll('.modal_wrap').forEach(modal => {
+        modal.addEventListener('click', function(e){
+            if(e.target.classList.contains('modal_wrap')){
+                this.style.display = 'none';
+            }
+        });
+    });
+</script>
