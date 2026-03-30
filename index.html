@@ -1,9 +1,105 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
+
 <head>
-  <title>test</title>
+    <meta charset="utf-8">
+    <link href="/favicon.ico" rel="icon">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>조국혁신당 지방선거</title>
+    <meta content="조국혁신당 지방선거, 조국혁신당, 지방선거" name="keywords" />
+    <!-- <meta content="img/common/og_img.jpg" property="og:image">
+	<meta content="800" property="og:image:width">
+	<meta content="400" property="og:image:height"> -->
+    <meta content="website" property="og:type">
+    <meta content="template" property="og:url">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- css -->
+    <link rel="stylesheet" crossorigin="" href="css/default.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <!-- jq -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"
+        integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+        integrity="sha512-onMTRKJBKz8M1TnqqDuGBlowlH0ohFzMXYRNebz+yOcc5TQr/zAKsthzhuv0hiyUKEiQEQXEynnXCvNTOk50dg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        $(function () {
+            function bindPcNavHover() {
+                const isPc = $(window).width() >= 1400;
+
+                if (isPc) {
+                    $('.nav_1depth')
+                    .off('.pcNav') // 중복 바인딩 방지
+                    .on('mouseenter.pcNav', function () {
+                        $(this).children('.nav_2depth').stop(true, true).slideDown(200);
+                    })
+                    .on('mouseleave.pcNav', function () {
+                        $(this).children('.nav_2depth').stop(true, true).slideUp(200);
+                    });
+                } else {
+                    $('.nav_1depth').off('.pcNav');
+                    $('.nav_2depth').removeAttr('style'); // 열려있던 메뉴 초기화
+                }
+            }
+
+            // 최초 실행
+            bindPcNavHover();
+
+            // 화면 크기 변경 시 다시 적용
+            $(window).on('resize', bindPcNavHover);
+
+            $('body').removeClass('no-scroll');
+            $('.nav_open').click(function () {
+                $(this).toggleClass('active');
+                $('nav > ul').toggleClass('open');
+
+                if ($(this).hasClass('active')) {
+                    $('body').addClass('no-scroll');
+                } else {
+                    $('body').removeClass('no-scroll');
+                }
+            });
+
+        });
+    </script>
 </head>
+
 <body>
-  hello vercel
+    <div id="wrap">
+        <div class="admin">
+            <div class="adm_login_wrap">
+                <div class="login_form">
+                    <h1 class="logo">
+                        <a href="index.html"><img src="images/logo.svg" alt=""></a>
+                    </h1>
+                    <h2>ADMINISTRATOR LOGIN</h2>
+                    <div class="login_box">
+                        <div class="login_box_input">
+                            <input type="text" placeholder="아이디">
+                            <input type="password" placeholder="비밀번호">
+                        </div>
+                        <input type="submit" class="login_btn" value="로그인">
+                    </div>
+                    <p>Copyrights Ministry of environment. All Right Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
+
+
 </html>
+
+<script>
+</script>
