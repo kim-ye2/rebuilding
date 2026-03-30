@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <link href="/favicon.ico" rel="icon">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>조국혁신당 지방선거</title>
+    <meta content="website" property="og:type">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- css -->\
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" crossorigin="" href="../css/default.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0"
+        rel="stylesheet" />
+        
+    <script>
+        $(function () {
+            function bindPcNavHover() {
+                const isPc = $(window).width() >= 720;
+                if (isPc) {
+                    $('.nav_1depth').off('.pcNav')
+                        .on('mouseenter.pcNav', function () {
+                            $(this).children('.nav_2depth').stop(true, true).slideDown(200);
+                        })
+                        .on('mouseleave.pcNav', function () {
+                            $(this).children('.nav_2depth').stop(true, true).slideUp(200);
+                        });
+                } else {
+                    $('.nav_1depth').off('.pcNav');
+                    $('.nav_2depth').removeAttr('style');
+                }
+            }
+            bindPcNavHover();
+            $(window).on('resize', bindPcNavHover);
+            $('body').removeClass('no-scroll');
+            $('.nav_open').click(function () {
+                $(this).toggleClass('active');
+                $('nav > ul').toggleClass('open');
+                if ($(this).hasClass('active')) {
+                    $('body').addClass('no-scroll');
+                } else {
+                    $('body').removeClass('no-scroll');
+                }
+            });
+
+            /* 토글 버튼 */
+            $(document).on('click', '.btn_group_toggle button', function () {
+                $(this).siblings().removeClass('on');
+                $(this).addClass('on');
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="admin">
+            <header>
+                <h1 class="logo"><img src="../images/logo.svg" alt=""></h1>
+                <nav>
+                    <ul>
+                        <li class="nav_1depth"><a href="">홈</a></li>
+                        <li class="nav_1depth"><a href="../member/list.html">후보자 관리</a></li>
+                        <li class="nav_1depth"><a href="../board/list.html">게시판 관리</a></li>
+                        <li class="nav_1depth"><a href="">배너 관리</a></li>
+                        <li class="nav_1depth"><a href="">팝업 관리</a></li>
+                        <li class="nav_1depth"><a href="">시스템관리</a></li>
+                    </ul>
+                    <div class="nav_mobile_wrap">
+                        <div class="nav_open"><span></span><span></span><span></span></div>
+                        <div class="nav_mobile_bg"></div>
+                    </div>
+                </nav>
+                <div class="logout">
+                    <p>관리자(admin)</p>
+                    <button class="btn_under">로그아웃</button>
+                </div>
+            </header>
+
+            <div class="cont">
+                <div class="lnb">
+                    <div class="lnb_tit">
+                        <h2>후보자 관리</h2>
+                    </div>
+                    <ul>
+                        <li class="lnb_1depth active">
+                            <a href="list.html">후보자 관리</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="content">
+                    <h3 class="adm_title">후보자 신규등록</h3>
+
+                    <!-- ① 선거 및 지역구 -->
+                    <div class="section_block">
+                        <p class="adm_subtitle">선거 및 지역구</p>
+                        <table class="table_a single">
+                            <tr>
+                                <th>선거 분류</th>
+                                <td>
+                                    <div class="btn_group_toggle">
+                                        <button class="on">지방선거</button>
+                                        <button>보궐선거</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>선거 유형</th>
+                                <td>
+                                    <div class="flex">
+                                        <select style="min-width:180px;">
+                                            <option value="">- 선택 -</option>
+                                            <option>광역자치단체장</option>
+                                            <option>광역의회의원</option>
+                                            <option>광역의원 비례대표</option>
+                                            <option>기초자치단체장</option>
+                                            <option>기초의회의원</option>
+                                            <option>기초의원 비례대표</option>
+                                            <option>국회의원(재보궐)</option>
+                                        </select>
+
+                                         <!-- 
+                                         보궐선거 선택시 
+                                         <select style="min-width:180px;">
+                                            <option value="">- 선택 -</option>
+                                            <option>광역자치단체장</option>
+                                            <option>광역의회의원</option>
+                                            <option>기초자치단체장</option>
+                                            <option>기초의회의원</option>
+                                            <option>국회의원(재보궐)</option>
+                                        </select> -->
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>선거 지역구</th>
+                                <td>
+                                    <div class="addr_input">
+                                        <select style="min-width:120px;">
+                                            <option value="">- 선택(시·도) -</option>
+                                            <option>서울</option>
+                                            <option>경기</option>
+                                            <option>인천</option>
+                                            <option>부산</option>
+                                            <option>대구</option>
+                                            <option>광주</option>
+                                            <option>대전</option>
+                                            <option>울산</option>
+                                            <option>세종</option>
+                                            <option>강원</option>
+                                            <option>충북</option>
+                                            <option>충남</option>
+                                            <option>전북</option>
+                                            <option>전남</option>
+                                            <option>경북</option>
+                                            <option>경남</option>
+                                            <option>제주</option>
+                                        </select>
+                                        <select style="min-width:140px;">
+                                            <option value="">- 선택(시·군·구) -</option>
+                                        </select>
+                                        <input type="text" placeholder="상세 선거구" style="min-width:160px;">
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- ② 후보자 상태 관리 -->
+                    <div class="section_block">
+                        <p class="adm_subtitle">후보자 상태 관리</p>
+                        <table class="table_a">
+                            <tr>
+                                <th>후보자 번호</th>
+                                <td>
+                                    <select style="min-width:140px;">
+                                        <option value="">- 선택 -</option>
+                                        <option>후보 1번</option>
+                                        <option>후보 2번</option>
+                                        <option>후보 3번</option>
+                                    </select>
+                                </td>
+                                <th>노출여부</th>
+                                <td>
+                                    <div class="btn_group_toggle">
+                                        <button class="on">노출</button>
+                                        <button>미노출</button>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>후보 상태</th>
+                                <td>
+                                    <div class="btn_group_toggle">
+                                        <button class="on">예비후보자</button>
+                                        <button>후보자</button>
+                                    </div>
+                                </td>
+                                <th>당선여부</th>
+                                <td>
+                                    <div class="btn_group_toggle">
+                                        <button>미당선</button>
+                                        <button>당선</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- ③ 인적사항 -->
+                    <div class="section_block">
+                        <p class="adm_subtitle">인적사항</p>
+                        <table class="table_a single">
+                            <tr>
+                                <th>이름</th>
+                                <td colspan="3"><input type="text" style="min-width:200px;"></td>
+                            </tr>
+                            <tr>
+                                <th>생년월일</th>
+                                <td colspan="3">
+                                    <div class="form_inline">
+                                        <select style="min-width:80px;">
+                                            <option>- 년도 -</option>                                            
+                                        </select>
+                                        <select style="min-width:60px;">
+                                            <option>월</option>                                            
+                                        </select>
+                                        <select style="min-width:60px;">
+                                            <option>일</option>                                            
+                                        </select>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>사진</th>
+                                <td colspan="3">
+                                    <div class="memphoto_area">
+                                        <div class="photo_box" id="photo_preview">
+                                            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z" />
+                                            </svg>
+                                        </div>
+                                        <div class="photo_btns">
+                                            <input type="file" id="photo_input" accept="image/*" style="display:none;">
+                                            <button class="btn_xs" onclick="document.getElementById('photo_input').click()">사진 등록</button>
+                                            <button class="btn_xs btn_line" id="photo_del">삭제</button>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- ④ 학력사항 -->
+                    <div class="section_block">
+                        <p class="adm_subtitle">학력사항</p>
+                        <div class="section_top_btn">
+                            <button class="btn_xs" id="edu_add">추가</button>
+                            <button class="btn_xs btn_line" id="edu_del">삭제</button>
+                        </div>
+                        <table class="table_c" id="edu_table">
+                            <thead>
+                                <tr>
+                                    <th>구분</th>
+                                    <th>학교명</th>
+                                    <th>학과</th>
+                                    <th>지역</th>
+                                    <th>졸업여부</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <select>
+                                            <option>초등학교</option>
+                                            <option>중학교</option>
+                                            <option>고등학교</option>
+                                            <option>대학교</option>
+                                            <option>대학원</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="text"></td>
+                                    <td><input type="text"></td>
+                                    <td>
+                                        <select>
+                                            <option>서울</option>
+                                            <option>경기</option>
+                                            <option>인천</option>
+                                            <option>부산</option>
+                                            <option>기타</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>졸업</option>
+                                            <option>재학</option>
+                                            <option>중퇴</option>
+                                            <option>수료</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select>
+                                            <option>초등학교</option>
+                                            <option selected>중학교</option>
+                                            <option>고등학교</option>
+                                            <option>대학교</option>
+                                            <option>대학원</option>
+                                        </select></td>
+                                    <td><input type="text"></td>
+                                    <td><input type="text"></td>
+                                    <td>
+                                        <select>
+                                            <option selected>경기</option>
+                                            <option>서울</option>
+                                            <option>인천</option>
+                                            <option>부산</option>
+                                            <option>기타</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>졸업</option>
+                                            <option>재학</option>
+                                            <option>중퇴</option>
+                                            <option>수료</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select>
+                                            <option>초등학교</option>
+                                            <option>중학교</option>
+                                            <option selected>고등학교</option>
+                                            <option>대학교</option>
+                                            <option>대학원</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="text"></td>
+                                    <td><input type="text"></td>
+                                    <td>
+                                        <select>
+                                            <option>- 선택 -</option>
+                                            <option>서울</option>
+                                            <option>경기</option>
+                                            <option>인천</option>
+                                            <option>부산</option>
+                                            <option>기타</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>- 선택 -</option>
+                                            <option>졸업</option>
+                                            <option>재학</option>
+                                            <option>중퇴</option>
+                                            <option>수료</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select>
+                                            <option>- 선택 -</option>
+                                            <option>초등학교</option>
+                                            <option>중학교</option>
+                                            <option>고등학교</option>
+                                            <option>대학교</option>
+                                            <option>대학원</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="text"></td>
+                                    <td><input type="text"></td>
+                                    <td>
+                                        <select>
+                                            <option>- 선택 -</option>
+                                            <option>서울</option>
+                                            <option>경기</option>
+                                            <option>인천</option>
+                                            <option>부산</option>
+                                            <option>기타</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>- 선택 -</option>
+                                            <option>졸업</option>
+                                            <option>재학</option>
+                                            <option>중퇴</option>
+                                            <option>수료</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select>
+                                            <option>- 선택 -</option>
+                                            <option>초등학교</option>
+                                            <option>중학교</option>
+                                            <option>고등학교</option>
+                                            <option>대학교</option>
+                                            <option>대학원</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="text"></td>
+                                    <td><input type="text"></td>
+                                    <td>
+                                        <select>
+                                            <option>- 선택 -</option>
+                                            <option>서울</option>
+                                            <option>경기</option>
+                                            <option>인천</option>
+                                            <option>부산</option>
+                                            <option>기타</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <select>
+                                            <option>- 선택 -</option>
+                                            <option>졸업</option>
+                                            <option>재학</option>
+                                            <option>중퇴</option>
+                                            <option>수료</option>
+                                        </select>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- ⑤ 경력사항 -->
+                    <div class="section_block">
+                        <p class="adm_subtitle">경력사항</p>
+                        <div class="section_top_btn">
+                            <button class="btn_xs" id="career_add">추가</button>
+                            <button class="btn_xs btn_line" id="career_del">삭제</button>
+                        </div>
+                        <table class="table_c" id="career_table">
+                            <thead>
+                                <tr>
+                                    <th style="width:15%;">구분</th>
+                                    <th style="width:30%;">기관/회사명</th>
+                                    <th>상세내용</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <select>
+                                            <option>- 선택 -</option>
+                                            <option selected>진행중(현)</option>
+                                            <option>종료(전)</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="text"></td>
+                                    <td><input type="text"></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select>
+                                            <option>- 선택 -</option>
+                                            <option>진행중(현)</option>
+                                            <option selected>종료(전)</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="text"></td>
+                                    <td><input type="text"></td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <select>
+                                            <option>- 선택 -</option>
+                                            <option>진행중(현)</option>
+                                            <option>종료(전)</option>
+                                        </select>
+                                    </td>
+                                    <td><input type="text"></td>
+                                    <td><input type="text"></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- ⑥ 후보자 핵심 메시지 & 정책 -->
+                    <div class="section_block">
+                        <p class="adm_subtitle">후보자 핵심 메시지 &amp; 정책</p>
+                        <table class="table_a single">
+                            <tr>
+                                <th>대표 슬로건</th>
+                                <td colspan="3">
+                                    <input type="text" class="wfull">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>출마의 변</th>
+                                <td colspan="3">
+                                    <!-- 스마트에디터 필요 -->
+                                    <textarea name="" id=""></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>
+                                    공약 요약
+                                </th>
+                                <td colspan="3">
+                                    <!-- 스마트에디터 필요 -->
+                                    <textarea name="" id=""></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>대표 공약</th>
+                                <td colspan="3">
+                                    <!-- 스마트에디터 필요 -->
+                                    <textarea name="" id=""></textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>자기소개</th>
+                                <td colspan="3">
+                                    <!-- 스마트에디터 필요 -->
+                                    <textarea name="" id=""></textarea>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- ⑦ 후보자 SNS -->
+                    <div class="section_block">
+                        <p class="adm_subtitle">후보자 SNS</p>
+                        <table class="table_a single">
+                            <tr>
+                                <th>페이스북</th>
+                                <td><input type="text" class="wfull"></td>
+                            </tr>
+                            <tr>
+                                <th>인스타그램</th>
+                                <td><input type="text" class="wfull"></td>
+                            </tr>
+                            <tr>
+                                <th>X(구 트위터)</th>
+                                <td><input type="text" class="wfull"></td>
+                            </tr>
+                            <tr>
+                                <th>네이버 블로그</th>
+                                <td><input type="text" class="wfull"></td>
+                            </tr>
+                            <tr>
+                                <th>유튜브</th>
+                                <td><input type="text" class="wfull"></td>
+                            </tr>
+                            <tr>
+                                <th>카카오톡 채널</th>
+                                <td><input type="text" class="wfull"></td>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <!-- ⑧ 후보자 미디어 관리 -->
+                    <div class="section_block">
+                        <p class="adm_subtitle">후보자 미디어 관리</p>
+                        <div class="section_top_btn">
+                            <button class="btn_xs" id="media_add">추가</button>
+                        </div>
+                        <table class="table_c" id="media_table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>유형</th>
+                                    <th>URL</th>
+                                    <th>삭제</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="center">1</td>
+                                    <td>
+                                        <select>
+                                            <option>동영상</option>
+                                            <option>이미지</option>
+                                            <option>- 선택 -</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="text">
+                                   
+                                    </td>
+                                    <td><button class="btn_xs btn_line media_row_del">삭제</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="center">2</td>
+                                    <td>
+                                        <select>
+                                            <option>동영상</option>
+                                            <option selected>이미지</option>
+                                            <option>- 선택 -</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="file" class="">
+                                    </td>
+                                    <td><button class="btn_xs btn_line media_row_del">삭제</button></td>
+                                </tr>
+                                <tr>
+                                    <td class="center">3</td>
+                                    <td>
+                                        <select>
+                                            <option value="">- 선택 -</option>
+                                            <option>동영상</option>
+                                            <option>이미지</option>
+                                        </select>
+                                    </td>
+                                    <td>
+                                        <input type="file" class="">
+                                    </td>
+                                    <td><button class="btn_xs btn_line media_row_del">삭제</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- ⑨ 후보자 배너 관리 -->
+                    <div class="section_block">
+                        <p class="adm_subtitle">후보자 배너 관리</p>
+                        <table class="table_c">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>구분</th>
+                                    <th>정부파일명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="center">1</td>
+                                    <td class="center">예비후보자</td>
+                                    <td>
+                                        <input type="file" class="">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="center">2</td>
+                                    <td class="center">후보자</td>
+                                    <td>
+                                        <input type="file" class="">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="center">3</td>
+                                    <td class="center">당선자</td>
+                                    <td>
+                                        <input type="file" class="">
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- 하단 버튼 -->
+                    <div class="modal_btn_wrap">
+                        <button class="btn_md">등록</button>
+                        <button class="btn_md gray">취소</button>
+                    </div>
+
+                </div><!-- /content -->
+            </div><!-- /cont -->
+        </div><!-- /admin -->
+    </div><!-- /wrap -->
+
+    <script>
+        /* ── 사진 미리보기 / 삭제 ── */
+        const photoInput   = document.getElementById('photo_input');
+        const photoPreview = document.getElementById('photo_preview');
+        const photoDel     = document.getElementById('photo_del');
+
+        const photoPlaceholder = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 12c2.7 0 4.8-2.1 4.8-4.8S14.7 2.4 12 2.4 7.2 4.5 7.2 7.2 9.3 12 12 12zm0 2.4c-3.2 0-9.6 1.6-9.6 4.8v2.4h19.2v-2.4c0-3.2-6.4-4.8-9.6-4.8z"/>
+        </svg>`;
+
+        photoInput.addEventListener('change', function () {
+            const file = this.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                photoPreview.innerHTML = `<img src="${e.target.result}" alt="사진 미리보기">`;
+            };
+            reader.readAsDataURL(file);
+        });
+
+        photoDel.addEventListener('click', function () {
+            photoPreview.innerHTML = photoPlaceholder;
+            photoInput.value = '';
+        });
+
+
+
+
+
+        /* ── 학력 추가/삭제 ── */
+        const eduTmpl = `
+        <tr>
+            <td>
+                <select>
+                    <option>- 선택 -</option>
+                    <option>초등학교</option>
+                    <option>중학교</option>
+                    <option>고등학교</option>
+                    <option>대학교</option>
+                    <option>대학원</option>
+                </select>
+            </td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+            <td>
+                <select>
+                    <option>- 선택 -</option>
+                    <option>서울</option>
+                    <option>경기</option>
+                    <option>인천</option>
+                    <option>부산</option>
+                    <option>기타</option>
+                </select>
+            </td>
+            <td>
+                <select>
+                    <option>- 선택 -</option>
+                    <option>졸업</option>
+                    <option>재학</option>
+                    <option>중퇴</option>
+                    <option>수료</option>
+                </select>
+            </td>
+        </tr>`;
+
+        document.getElementById('edu_add').addEventListener('click', function () {
+            document.querySelector('#edu_table tbody').insertAdjacentHTML('beforeend', eduTmpl);
+        });
+
+        document.getElementById('edu_del').addEventListener('click', function () {
+            const rows = document.querySelectorAll('#edu_table tbody tr');
+            if (rows.length > 1) rows[rows.length - 1].remove();
+        });
+
+
+        /* ── 경력 추가/삭제 ── */
+        const careerTmpl = `
+        <tr>
+            <td>
+                <select>
+                    <option value="">- 선택 -</option>
+                    <option>진행중(현)</option>
+                    <option>종료(전)</option>
+                </select>
+            </td>
+            <td><input type="text"></td>
+            <td><input type="text"></td>
+        </tr>`;
+
+        document.getElementById('career_add').addEventListener('click', function () {
+            document.querySelector('#career_table tbody').insertAdjacentHTML('beforeend', careerTmpl);
+        });
+
+        document.getElementById('career_del').addEventListener('click', function () {
+            const rows = document.querySelectorAll('#career_table tbody tr');
+            if (rows.length > 1) rows[rows.length - 1].remove();
+        });
+
+
+        /* ── 미디어 행 추가 ── */
+        document.getElementById('media_add').addEventListener('click', function () {
+            const tbody = document.querySelector('#media_table tbody');
+            const count = tbody.querySelectorAll('tr').length + 1;
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td class="center">${count}</td>
+                <td>
+                    <select>
+                        <option value="">- 선택 -</option>
+                        <option>동영상</option>
+                        <option>이미지</option>
+                    </select>
+                </td>
+                <td>
+                  <input type="file" class="">
+                </td>
+                <td><button class="btn_xs btn_line media_row_del">삭제</button></td>`;
+            tbody.appendChild(tr);
+            bindFileAttach(tr.querySelector('.media_file_input'));
+        });
+
+
+        /* ── 미디어 행 삭제 (이벤트 위임) ── */
+        document.addEventListener('click', function (e) {
+            if (e.target.classList.contains('media_row_del')) {
+                e.target.closest('tr').remove();
+                document.querySelectorAll('#media_table tbody tr').forEach(function (tr, i) {
+                    tr.cells[0].textContent = i + 1;
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

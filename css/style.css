@@ -83,6 +83,7 @@
 .admin .table_a tr:first-child {border-top: 1px solid #a8a8a8;}
 .admin .table_a tr th:first-child {border-left: none;}
 .admin .table_a tr td {width: 34%; padding: 8px 12px;border-bottom: 1px solid #ddd;}
+.admin .table_a tr td.center {text-align: center;}
 .admin .table_a.single tr td {width: 84%;}
 .admin .table_b tr th {padding: 8px 12px;border-bottom: 1px solid #ddd;border-right: 1px solid #ddd;background: #efefef;}
 .admin .table_b tr th:last-child {border-right: none;}
@@ -91,9 +92,17 @@
 .admin .table_b tr td:last-child {border-right: none;}
 .admin table tr td.td_big {height: 200px;overflow-y: scroll;}
 
+.admin .table_c {width: 100%;border-collapse: collapse;border-top: 1px solid #a8a8a8;}
+.admin .table_c thead tr:first-child th{border-top: 1px solid #a8a8a8;}
+.admin .table_c thead th {padding: 8px 10px;background: #f2f2f2;border: 1px solid #ddd;font-size: 0.875rem;text-align: center;font-weight: 600;}
+.admin .table_c tbody td {padding: 6px 8px;border: 1px solid #ddd;vertical-align: middle;}
+.admin .table_c tr td.center {text-align: center;}
+.admin .table_c tbody td select, .admin  .table_c tbody td input[type=text] {width: 100%;min-height: 32px;}
+.admin .table_c tfoot td {padding: 8px;border: 1px solid #ddd;background: #fafafa;}
+
 .admin .search {display: flex;gap:24px;padding: 24px;background: #f8f8f8;flex-wrap:wrap;}
 .admin .search h5 {color: #818181;font-size: 14px;}
-
+.admin .section_block {margin: 0 0 32px;}
 .admin .line {margin:40px 0;height:1px;background: #ccc;}
 .admin .box {margin:0 0 48px;}
 .admin .btn_wrap {text-align: center;}
@@ -107,6 +116,32 @@
 .admin .thumb_box {position:relative;width:300px;}
 .admin .thumb_box .img {width:100%; object-fit: contain;overflow: hidden;}
 .admin .thumb_box .del_btn {position: absolute;top:11px;right:11px;width:22px;}
+
+.admin  .btn_group_toggle {display: flex;gap: 0;}
+.admin .btn_group_toggle button {padding: 5px 16px;border: 1px solid #a8a8a8;background: #fff;color: #353535;font-size: 0.875rem;cursor: pointer;}
+
+.admin .btn_group_toggle button:first-child {border-radius: 4px 0 0 4px;}
+.admin .btn_group_toggle button:last-child {border-radius: 0 4px 4px 0;}
+.admin .btn_group_toggle button.on {background: #353535;color: #fff;border-color: #353535;}
+
+.admin .form_inline {display: flex;align-items: center;gap: 8px;flex-wrap: wrap;}
+.admin .form_inline select,
+.admin .form_inline input[type=text] {min-width: 80px;}
+.admin .addr_input {display: flex;align-items: center;gap: 6px;flex-wrap: wrap;}
+.admin .addr_input select {min-width: 120px;}
+.admin .addr_input input[type=text] {min-width: 160px;}
+
+.admin .attach_file{display: flex;width:110px;align-items: center;gap: 4px;background: #efefef;border-radius: 4px;padding: 2px 6px 2px 8px;font-size: 0.8rem;color: #353535;justify-content: space-between;}
+.admin .attach_file span{display: block; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+.admin .attach_file  button {background: none;border: none;padding: 0;line-height: 1;color: #888;cursor: pointer;font-size: 1rem;display: flex;align-items: center;}
+
+.admin .section_top_btn {display: flex;justify-content: flex-end;gap: 4px;margin: 0 0 6px;}
+.memphoto_area {display: flex;align-items: flex-end;gap: 12px;}
+.memphoto_area .photo_box {width: 80px;height: 100px;border: 1px solid #a8a8a8;display: flex;align-items: center;justify-content: center;background: #f2f2f2;overflow: hidden;border-radius: 4px;}
+.memphoto_area .photo_box svg {width: 40px;height: 40px;fill: #bbb;}
+.memphoto_area .photo_btns {display: flex;flex-direction: column;gap: 6px;}
+.memphoto_area .photo_box img {width: 100%;height: 100%;object-fit: cover;display: block;}
+
 
 
 

@@ -5,13 +5,14 @@
     <meta charset="utf-8">
     <link href="/favicon.ico" rel="icon">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <title>PSK admin</title>
+    <title>조국혁신당 지방선거</title>
+    <meta content="조국혁신당 지방선거, 조국혁신당, 지방선거" name="keywords" />
     <meta content="website" property="og:type">
     <meta content="template" property="og:url">
     <meta content="yes" name="apple-mobile-web-app-capable">
     <!-- css -->
-    <link rel="stylesheet" crossorigin="" href="../../css/default.css">
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" crossorigin="" href="../css/default.css">
+    <link rel="stylesheet" href="../css/style.css">
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,33 +68,27 @@
     <div id="wrap">
         <div class="admin">
             <header>
-                <h1 class="logo"><img src="../../images/logo.svg" alt=""></h1>
+                <h1 class="logo"><img src="../images/logo.svg" alt=""></h1>
                 <nav>
                     <ul>
                         <li class="nav_1depth">
                             <a href="">홈</a>
                         </li>
                         <li class="nav_1depth">
-                            <a href="">회원관리</a>
+                            <a href="../member/list.html">후보자 관리</a>
                         </li>
                         <li class="nav_1depth">
-                            <a href="">상품관리</a>
+                            <a href="../board/list.html">게시판 관리</a>
                         </li>
                         <li class="nav_1depth">
-                            <a href="../golf/list.html">예약관리</a>
+                            <a href="../golf/list.html">배너 관리</a>
                         </li>
                         <li class="nav_1depth">
-                            <a href="">멤버십/쿠폰관리</a>
+                            <a href="">팝업 관리</a>
                         </li>
                         
                         <li class="nav_1depth">
-                            <a href="../../board/notice/list.html">게시판관리</a>
-                        </li>
-                        <li class="nav_1depth">
                             <a href="">시스템관리</a>
-                        </li>
-                        <li class="nav_1depth">
-                            <a href="../../inquiry/list.html">상담관리</a>
                         </li>
                     </ul>
                     <div class="nav_mobile_wrap">
@@ -114,79 +109,68 @@
             <div class="cont">
                 <div class="lnb">
                     <div class="lnb_tit">
-                        <h2>예약관리</h2>
+                        <h2>후보자 관리</h2>
                     </div>
                     <ul>
                         <li class="lnb_1depth active">
-                            <a href="../../reservation/golf/list.html">예약신청내역</a>
-                            <ul class="lnb_2depth">
-                                <li><a href="../../reservation/golf/list.html" class="active">골프투어</a></li>
-                                <li><a href="../../reservation/accommodation/list.html">숙소</a></li>
-                                <li><a href="../../reservation/renter/list.html">렌터카(제주도)</a></li>
-                            </ul>
-                        </li>
-                        <li class="lnb_1depth">
-                            <a href="../../reservation/cancel.html">취소내역</a>
-                        </li>
-                        <li class="lnb_1depth active">
-                            <a href="../../reservation/golf/list.html">예약신청내역</a>
-                            <ul class="lnb_2depth">
-                                <li><a href="../../reservation/golf/list.html" class="active">골프투어</a></li>
-                                <li><a href="../../reservation/accommodation/list.html">숙소</a></li>
-                                <li><a href="../../reservation/renter/list.html">렌터카(제주도)</a></li>
-                            </ul>
-                        </li>
-                        <li class="lnb_1depth">
-                            <a href="../../reservation/cancel.html">취소내역</a>
+                            <a href="../member/list.html">후보자 관리</a>
                         </li>
                     </ul>
                 </div>
                 <div class="content">
-                    <h3 class="adm_title">골프 예약신청내역</h3>
+                    <h3 class="adm_title">후보자 관리</h3>
                     <div class="search">
                         <div class="search_input">
-                            <h5>신청일</h5>
-                            <div class="flex gap_sm">
-                                <input type="date">
-                                <span>~</span>
-                                <input type="date">
-                            </div>
-                        </div>
-                        <div class="search_input">
-                            <h5>예약 희망일</h5>
-                            <div class="flex gap_sm">
-                                <input type="date">
-                                <span>~</span>
-                                <input type="date">
-                            </div>
-                        </div>
-                        <div class="search_input">
-                            <h5>지역</h5>
-                            <select name="" id="">
-                                <option value="">강원</option>
-                                <option value="">부산</option>
-                                <option value="">수도권</option>
-                                <option value="">제주</option>
-                            </select>
-                        </div>
-                        <div class="search_input">
-                            <h5>상태</h5>
+                            <h5>선거 분류</h5>                            
                             <select name="" id="">
                                 <option value="">전체</option>
-                                <option value="">접수</option>
-                                <option value="">처리중</option>
-                                <option value="">확정</option>
-                                <option value="">예약불가</option>
+                                <option value="">지방선거</option>
+                                <option value="">보궐선거</option>
+                            </select>
+                        </div>
+                        
+                        <div class="search_input">
+                            <h5>선거 유형</h5>                            
+                            <select name="" id="">
+                                <option value="">전체</option>
+                                <option value="">광역자치단체장</option>
+                                <option value="">광역의회의원</option>
+                                <option value="">광역의원 비례대표</option>
+                                <option value="">기초자치단체장</option>
+                                <option value="">기초의회의원</option>
+                                <option value="">기초의원 비례대표</option>
+                                <option value="">국회의원(재보궐)</option>
+                            </select>
+                        </div>
+
+                        <div class="search_input">
+                            <h5>노출여부</h5>                            
+                            <select name="" id="">
+                                <option value="">전체</option>
+                                <option value="">노출</option>
+                                <option value="">비노출</option>
+                            </select>
+                        </div>
+
+                        <div class="search_input">
+                            <h5>후보 상태</h5>
+                            <select name="" id="">
+                                <option value="">전체</option>
+                                <option value="">후보자</option>
+                                <option value="">예비후보자</option>
                             </select>
                         </div>
                         <div class="search_input">
-                            <h5>검색</h5>
+                            <h5>당선여부</h5>
+                            <select name="" id="">
+                                <option value="">전체</option>
+                                <option value="">당선</option>
+                                <option value="">미당선</option>
+                            </select>
+                        </div>
+                        <div class="search_input">
+                            <h5>후보명</h5>
                             <div class="flex">
-                                <select name="" id="">
-                                    <option value="">전체</option>
-                                    <option value="">신청자명</option>
-                                    <option value="">골프장명</option>
-                                </select>
                                 <input type="text">
                             </div>
                         </div>
@@ -194,66 +178,71 @@
                     </div>
                     <div class="line"></div>
                     <div >
-                        <p class="caption">조회건수 212 건</p>
+                        <div class="top_btn">
+                            <p class="caption">조회건수 77 건</p>
+                            <a href="write.html" class="btn_sm">신규등록</a>
+                        </div>
+
                         <div class="table_wrap">
                             <table class="table_b">
                                 <thead>
                                     <tr>
                                         <th>No.</th>
-                                        <th>예약번호</th>
-                                        <th>상품코드</th>
-                                        <th>골프장명</th>
-                                        <th>지역</th>
-                                        <th>신청자명</th>
-                                        <th>신청자 연락처</th>
-                                        <th>예약 희망일</th>
-                                        <th>신청일</th>
-                                        <th>상태</th>
+                                        <th>선거 분류</th>
+                                        <th>선거 유형</th>
+                                        <th>선거 지역구</th>
+                                        <th>후보 상태</th>
+                                        <th>당선여부</th>
+                                        <th>후보명</th>
+                                        <th>노출여부</th>
+                                        <th>등록일</th>
+                                        <th>수정일</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>212</td>
+                                        <td>77</td>
+                                        <td>지방선거</td>
+                                        <td>광역자치단체장</td>
+                                        <td>서울</td>
+                                        <td>예비후보자</td>
+                                        <td>미당선</td>
                                         <td>
-                                            <a href="detail.html" class="btn_under">20250809-0013</a>
+                                            <a href="detail.html" class="btn_under">김시민</a>
                                         </td>
-                                        <td>G02817</td>
-                                        <td class="tal">세이지우드CC</td>
-                                        <td>강원권</td>
-                                        <td>홍길동</td>
-                                        <td>010-2213-6627</td>
-                                        <td>2025.12.01</td>
-                                        <td>2025.08.11</td>
-                                        <td>접수</td>
+                                        <td>노출</td>
+                                        <td>2026.03.00</td>
+                                        <td>2026.03.00</td>
                                     </tr>
                                     <tr>
-                                        <td>211</td>
+                                        <td>76</td>
+                                        <td>보궐선거</td>
+                                        <td>광역의회의원</td>
+                                        <td>경기</td>
+                                        <td>후보자</td>
+                                        <td>미당선</td>
                                         <td>
-                                            <a href="detail.html" class="btn_under">20250809-0012</a>
+                                            <a href="detail.html" class="btn_under">이당선</a>
                                         </td>
-                                        <td>G02815</td>
-                                        <td class="tal">알펜시아CC</td>
-                                        <td>강원권</td>
-                                        <td>임꺽정</td>
-                                        <td>010-1123-2234</td>
-                                        <td>2025.10.08</td>
-                                        <td>2025.08.09</td>
-                                        <td>확정</td>
+                                        <td>노출</td>
+                                        <td>2026.03.00</td>
+                                        <td>2026.03.00</td>
                                     </tr>
                                     <tr>
-                                        <td>211</td>
+                                        <td>75</td>
+                                        <td>지방선거</td>
+                                        <td>광역의원 비례대표</td>
+                                        <td>서울</td>
+                                        <td>후보자</td>
+                                        <td>당선</td>
                                         <td>
-                                            <a href="detail.html" class="btn_under">20250809-0012</a>
+                                            <a href="detail.html" class="btn_under">박후보</a>
                                         </td>
-                                        <td>G02815</td>
-                                        <td class="tal">알펜시아CC</td>
-                                        <td>강원권</td>
-                                        <td>임꺽정</td>
-                                        <td>010-1123-2234</td>
-                                        <td>2025.10.08</td>
-                                        <td>2025.08.09</td>
-                                        <td>반려</td>
+                                        <td>미노출</td>
+                                        <td>2026.03.00</td>
+                                        <td>2026.03.00</td>
                                     </tr>
+                                   
                                 </tbody>
                             </table>
                         </div>
