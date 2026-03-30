@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <link href="/favicon.ico" rel="icon">
+    <meta content="width=device-width, initial-scale=1" name="viewport">
+    <title>조국혁신당 지방선거</title>
+    <meta content="조국혁신당 지방선거, 조국혁신당, 지방선거" name="keywords" />
+    <meta content="website" property="og:type">
+    <meta content="template" property="og:url">
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <!-- css -->
+    <link rel="stylesheet" crossorigin="" href="../css/default.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <!-- font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,1,0"
+        rel="stylesheet" />
+    <style>
+
+       
+    </style>
+
+    <!-- jq -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+            function bindPcNavHover() {
+                const isPc = $(window).width() >= 720;
+
+                if (isPc) {
+                    $('.nav_1depth')
+                    .off('.pcNav') // 중복 바인딩 방지
+                    .on('mouseenter.pcNav', function () {
+                        $(this).children('.nav_2depth').stop(true, true).slideDown(200);
+                    })
+                    .on('mouseleave.pcNav', function () {
+                        $(this).children('.nav_2depth').stop(true, true).slideUp(200);
+                    });
+                } else {
+                    $('.nav_1depth').off('.pcNav');
+                    $('.nav_2depth').removeAttr('style'); // 열려있던 메뉴 초기화
+                }
+            }
+
+            // 최초 실행
+            bindPcNavHover();
+
+            // 화면 크기 변경 시 다시 적용
+            $(window).on('resize', bindPcNavHover);
+
+            $('body').removeClass('no-scroll');
+            $('.nav_open').click(function () {
+                $(this).toggleClass('active');
+                $('nav > ul').toggleClass('open');
+
+                if ($(this).hasClass('active')) {
+                    $('body').addClass('no-scroll');
+                } else {
+                    $('body').removeClass('no-scroll');
+                }
+            });
+
+        });
+    </script>
+</head>
+
+<body>
+    <div id="wrap">
+        <div class="admin">
+            <header>
+                <h1 class="logo"><img src="../images/logo.svg" alt=""></h1>
+                <nav>
+                      <ul>
+                        <li class="nav_1depth">
+                            <a href="">홈</a>
+                        </li>
+                        <li class="nav_1depth">
+                            <a href="../member/list.html">후보자 관리</a>
+                        </li>
+                        <li class="nav_1depth">
+                            <a href="../board/list.html">게시판 관리</a>
+                        </li>
+                        <li class="nav_1depth">
+                            <a href="../banner/list.html">배너 관리</a>
+                        </li>
+                        <li class="nav_1depth">
+                            <a href="../popup/list.html">팝업 관리</a>
+                        </li>
+                        
+                        <li class="nav_1depth">
+                            <a href="">시스템관리</a>
+                        </li>
+                    </ul>
+                    <div class="nav_mobile_wrap">
+                        <div class="nav_open">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                        <div class="nav_mobile_bg">
+                        </div>
+                    </div>
+                </nav>
+                <div class="logout">
+                    <p>관리자(admin)</p>
+                    <button class="btn_under">로그아웃</button>
+                </div>
+            </header>
+            <div class="cont">
+                <div class="lnb">
+                    <div class="lnb_tit">
+                        <h2>배너 관리</h2>
+                    </div>
+                    <ul>
+                        <li class="lnb_1depth active">
+                            <a href="../banner/list.html">배너 관리</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="content">
+                    <h3 class="adm_title">배너 관리</h3>
+                    <div class="detail_wrap">
+                        <div class="table_wrap">
+                            <table class="table_b">
+                                <thead>
+                                    <tr>
+                                        <th width="5%">No</th>
+                                        <th width="30%">제목</th>
+                                        <th>URL(링크이동)</th>
+                                        <th>이미지</th>
+                                        <th>노출기간</th>
+                                        <th>사용여부</th>
+                                        <th>노출순서</th>
+                                        <th></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- 데이터 있는 행 1 -->
+                                    <tr>
+                                        <td class="td_no">1</td>
+                                        <td>
+                                            <input type="text" class="wfull" value="[공지] 조국혁신당 지방선거 홈페이지 오픈 배너">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="wfull" value="https://naver.com">
+                                        </td>
+                                        <td>
+                                            <div class="banner_img_wrap">
+                                                <div class="banner_img_box">
+                                                  <img src="../images/banner_sample.png" alt="">
+                                                </div>
+                                                <button type="button" class="banner_img_del" title="이미지 삭제">×</button>
+                                                <input type="file" class="banner_file_input" accept="image/*" style="display:none;">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="date_range">
+                                                <input type="date" value="2026-01-01">
+                                                <span>~</span>
+                                                <input type="date" value="2026-12-31">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select>
+                                                <option selected>사용</option>
+                                                <option>미사용</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select>
+                                                <option value="">- 선택 -</option>
+                                                <option selected>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <button class="btn_xs btn_line">삭제</button>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 데이터 있는 행 2 -->
+                                    <tr>
+                                        <td class="td_no">2</td>
+                                        <td>
+                                            <input type="text" class="wfull" value="[안내] 조국혁신당 지방선거 예비후보자 모집 배너">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="wfull" value="https://google.com">
+                                        </td>
+                                        <td>
+                                            <div class="banner_img_wrap">
+                                                <div class="banner_img_box">
+                                                    <img src="../images/banner_sample.png" alt="">
+                                                </div>
+                                                <button type="button" class="banner_img_del" title="이미지 삭제">×</button>
+                                                <input type="file" class="banner_file_input" accept="image/*" style="display:none;">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="date_range">
+                                                <input type="date" value="2026-01-01">
+                                                <span>~</span>
+                                                <input type="date" value="2026-12-31">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select>
+                                                <option selected>사용</option>
+                                                <option>미사용</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select>
+                                                <option value="">- 선택 -</option>
+                                                <option>1</option>
+                                                <option selected>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <button class="btn_xs btn_line">삭제</button>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 빈 행 3 -->
+                                    <tr>
+                                        <td class="td_no">3</td>
+                                        <td>
+                                            <input type="text" class="wfull">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="wfull">
+                                        </td>
+                                        <td>
+                                            <div class="banner_img_wrap">
+                                                <div class="banner_img_box">
+                                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                                                    </svg>
+                                                </div>
+                                                <input type="file" class="banner_file_input" accept="image/*" style="display:none;">
+                                                <button type="button" class="btn_xs" style="margin-top:4px;" onclick="this.closest('.banner_img_wrap').querySelector('.banner_file_input').click()">첨부하기</button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="date_range">
+                                                <input type="date">
+                                                <span>~</span>
+                                                <input type="date">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select>
+                                                <option selected>사용</option>
+                                                <option>미사용</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select>
+                                                <option value="">- 선택 -</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <button class="btn_xs btn_line">삭제</button>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 빈 행 4 -->
+                                    <tr>
+                                        <td class="td_no">4</td>
+                                        <td>
+                                            <input type="text" class="wfull">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="wfull">
+                                        </td>
+                                        <td>
+                                            <div class="banner_img_wrap">
+                                                <div class="banner_img_box">
+                                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                                                    </svg>
+                                                </div>
+                                                <input type="file" class="banner_file_input" accept="image/*" style="display:none;">
+                                                <button type="button" class="btn_xs" style="margin-top:4px;" onclick="this.closest('.banner_img_wrap').querySelector('.banner_file_input').click()">첨부하기</button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="date_range">
+                                                <input type="date">
+                                                <span>~</span>
+                                                <input type="date">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select>
+                                                <option selected>사용</option>
+                                                <option>미사용</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select>
+                                                <option value="">- 선택 -</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <button class="btn_xs btn_line">삭제</button>
+                                        </td>
+                                    </tr>
+
+                                    <!-- 빈 행 5 -->
+                                    <tr>
+                                        <td class="td_no">5</td>
+                                        <td>
+                                            <input type="text" class="wfull">
+                                        </td>
+                                        <td>
+                                            <input type="text" class="wfull">
+                                        </td>
+                                        <td>
+                                            <div class="banner_img_wrap">
+                                                <div class="banner_img_box">
+                                                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+                                                    </svg>
+                                                </div>
+                                                <input type="file" class="banner_file_input" accept="image/*" style="display:none;">
+                                                <button type="button" class="btn_xs" style="margin-top:4px;" onclick="this.closest('.banner_img_wrap').querySelector('.banner_file_input').click()">첨부하기</button>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="date_range">
+                                                <input type="date">
+                                                <span>~</span>
+                                                <input type="date">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <select>
+                                                <option selected>사용</option>
+                                                <option>미사용</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <select>
+                                                <option value="">- 선택 -</option>
+                                                <option>1</option>
+                                                <option>2</option>
+                                                <option>3</option>
+                                                <option>4</option>
+                                                <option>5</option>
+                                            </select>
+                                        </td>
+                                        <td>
+                                            <button class="btn_xs btn_line">삭제</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal_btn_wrap">
+                            <button class="btn_md">저장</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
+</html>
+<script>
+    function modalOpen(id) {
+        document.querySelectorAll('.modal_wrap').forEach(m => m.style.display = 'none');
+        document.getElementById(id).style.display = 'flex';
+    }
+
+    document.querySelectorAll('.modal_wrap').forEach(modal => {
+        modal.addEventListener('click', function (e) {
+            if (e.target.classList.contains('modal_wrap')) {
+                this.style.display = 'none';
+            }
+        });
+    });
+
+    /* 토글 버튼 */
+    $(document).on('click', '.btn_group_toggle button', function () {
+        $(this).siblings().removeClass('on');
+        $(this).addClass('on');
+    });
+
+    /* ── 배너 이미지 공통 함수 ── */
+    const imgPlaceholder = `<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path d="M21 19V5c0-1.1-.9-2-2-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2zM8.5 13.5l2.5 3.01L14.5 12l4.5 6H5l3.5-4.5z"/>
+    </svg>`;
+
+    function bindBannerImg(fileInput) {
+        fileInput.addEventListener('change', function () {
+            const file = this.files[0];
+            if (!file) return;
+
+            const wrap     = this.closest('.banner_img_wrap');
+            const imgBox   = wrap.querySelector('.banner_img_box');
+            const reader   = new FileReader();
+
+            reader.onload = function (e) {
+                imgBox.innerHTML = `<img src="${e.target.result}" alt="배너 이미지">`;
+
+                /* × 버튼이 없으면 생성 */
+                if (!wrap.querySelector('.banner_img_del')) {
+                    const delBtn = document.createElement('button');
+                    delBtn.type      = 'button';
+                    delBtn.className = 'banner_img_del';
+                    delBtn.title     = '이미지 삭제';
+                    delBtn.textContent = '×';
+                    wrap.insertBefore(delBtn, wrap.firstChild);
+                }
+
+                /* 첨부하기 버튼 숨김 */
+                const attachBtn = wrap.querySelector('.btn_xs:not(.banner_img_del)');
+                if (attachBtn) attachBtn.style.display = 'none';
+            };
+
+            reader.readAsDataURL(file);
+        });
+    }
+
+    /* 이미지 삭제 (이벤트 위임) */
+    document.addEventListener('click', function (e) {
+        if (e.target.classList.contains('banner_img_del')) {
+            const wrap       = e.target.closest('.banner_img_wrap');
+            const imgBox     = wrap.querySelector('.banner_img_box');
+            const fileInput  = wrap.querySelector('.banner_file_input');
+            const attachBtn  = wrap.querySelector('.btn_xs:not(.banner_img_del)');
+
+            imgBox.innerHTML = imgPlaceholder;
+            if (fileInput) fileInput.value = '';
+            e.target.remove();
+            if (attachBtn) attachBtn.style.display = '';
+        }
+    });
+
+    /* 기존 file input 바인딩 */
+    document.querySelectorAll('.banner_file_input').forEach(bindBannerImg);
+</script>

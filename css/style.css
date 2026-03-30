@@ -1,15 +1,15 @@
 /* button */
 .admin button.btn_xs, .admin a.btn_xs {line-height: 25px;height:25px; border-radius: 3px;padding: 0 10px;background: #353535;color: #eee;font-size: 0.875em;}
 .admin button.btn_xs.squre, .admin a.btn_xs.squre {width: 25px;height:25px; padding: 0;text-align: center;}
-.admin a.btn_sm {padding: 10px 12px;background: #353535;font-size: 0.875rem;color: #C8B081;text-align: center;display: inline-block;border-radius: 5px;}
-.admin button.btn_sm {padding: 10px 12px;background: #353535;font-size: 0.875rem;color: #C8B081;text-align: center;display: inline-block;border-radius: 5px;}
-.admin a.btn_md {padding: 12px 20px;background: #353535;color: #C8B081;text-align: center;display: inline-block;}
-.admin button.btn_md {padding: 12px 20px;background: #353535;color: #C8B081;text-align: center;display: inline-block;border-radius: 5px;}
-.admin a.btn_lg {padding: 12px 24px;background: #353535;font-size: 1.25rem;color: #C8B081;text-align: center;display: block;width: 100%;font-family: var(--font-serif);letter-spacing: var(--font-serif-spacing);}
-.admin button.btn_lg {padding: 16px 24px;background: #353535;font-size: 1rem;color: #C8B081;text-align: center;display: block;width: 100%;border-radius: 5px;}
+.admin a.btn_sm {padding: 10px 12px;background: #353535;font-size: 0.875rem;color: #fff;text-align: center;display: inline-block;border-radius: 5px;}
+.admin button.btn_sm {padding: 10px 12px;background: #353535;font-size: 0.875rem;color: #fff;text-align: center;display: inline-block;border-radius: 5px;}
+.admin a.btn_md {padding: 12px 20px;background: #353535;color: #fff;text-align: center;display: inline-block;}
+.admin button.btn_md {padding: 12px 20px;background: #353535;color: #fff;text-align: center;display: inline-block;border-radius: 5px;}
+.admin a.btn_lg {padding: 12px 24px;background: #353535;font-size: 1.25rem;color: #fff;text-align: center;display: block;width: 100%;font-family: var(--font-serif);letter-spacing: var(--font-serif-spacing);}
+.admin button.btn_lg {padding: 16px 24px;background: #353535;font-size: 1rem;color: #fff;text-align: center;display: block;width: 100%;border-radius: 5px;}
 .admin a.btn_black {color: #000;}
 .admin a.btn_white {color: #fff;}
-.admin button.trans {background: #C8B081;color: #353535;}
+.admin button.trans {background: #17479e;color: #fff;}
 .admin button.disabled {background: #ccc;color: #9e9e9e;}
 .admin button.gray {background: #a8a8a8;color: #fff;}
 .admin .btn_under {text-decoration: underline;color: #222;font-weight: 500;}
@@ -57,15 +57,15 @@
 .admin header .logout {display: flex;gap:6px;}
 
 .admin header .nav_open {display: none; flex-direction: column; gap: 8px; width: 24px; height: 24px; justify-content: center; position: absolute; top: 24px; right: 20px; z-index: 9999; cursor: pointer; }
-.admin header .nav_open span { height: 1px; background: #C8B081; display: block; transition: 0.3s; }
+.admin header .nav_open span { height: 1px; background: #17479e; display: block; transition: 0.3s; }
 .admin header .nav_open.active span:nth-child(1) { transform: rotate(45deg) translate(4px, 8px); }
 .admin header .nav_open.active span:nth-child(2) { opacity: 0; }
 .admin header .nav_open.active span:nth-child(3) { transform: rotate(-45deg) translate(4px, -8px); }
 
 .admin .cont {display: flex;}
 .admin .lnb {height:100vh;background: #353535;position: sticky;left:0;top:0;width:180px;}
-.admin .lnb .lnb_tit {text-align: center;padding:32px 20px;background: #C8B081;}
-.admin .lnb .lnb_tit h2 {font-size: 1.25rem;font-weight: 600;}
+.admin .lnb .lnb_tit {text-align: center;padding:32px 20px;background: #17479e;}
+.admin .lnb .lnb_tit h2 {font-size: 1.25rem;font-weight: 600;color:#fff;}
 .admin .lnb > ul {padding: 16px;}
 .admin .lnb ul li.lnb_1depth > a {display: block;padding: 12px 0;color: #ddd;}
 .admin .lnb ul li.lnb_1depth.active > a {font-weight: 600;color: #fff;}
@@ -134,6 +134,19 @@
 .admin .attach_file{display: flex;width:110px;align-items: center;gap: 4px;background: #efefef;border-radius: 4px;padding: 2px 6px 2px 8px;font-size: 0.8rem;color: #353535;justify-content: space-between;}
 .admin .attach_file span{display: block; overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
 .admin .attach_file  button {background: none;border: none;padding: 0;line-height: 1;color: #888;cursor: pointer;font-size: 1rem;display: flex;align-items: center;}
+.admin .date_range  {display: flex;flex-direction: column;align-items: center;justify-content: center;}
+
+/* 배나관리 이미지 셀 */
+.banner_img_box {width: 80px;height: 60px;border: 1px solid #ddd;background: #f8f8f8;display: flex;align-items: center;justify-content: center;
+overflow: hidden;border-radius: 3px;}
+.banner_img_box img {width: 100%;height: 100%;object-fit: cover;display: block;}
+.banner_img_box svg {width: 32px;height: 32px;fill: #ccc;}
+.banner_img_wrap {position: relative;display: inline-flex;flex-direction: column;align-items: center;gap: 4px;}
+
+.banner_img_del {position: absolute;top: -6px;right: -6px;width: 18px;height: 18px;background: #888;color: #fff;border: none;border-radius: 50%;
+font-size: 0.7rem;cursor: pointer;padding: 0;display: flex;align-items: center;justify-content: center;line-height: 1;}
+.banner_img_del:hover {background: #c00;}
+
 
 .admin .section_top_btn {display: flex;justify-content: flex-end;gap: 4px;margin: 0 0 6px;}
 .memphoto_area {display: flex;align-items: flex-end;gap: 12px;}

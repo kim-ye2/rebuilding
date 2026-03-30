@@ -5,13 +5,14 @@
     <meta charset="utf-8">
     <link href="/favicon.ico" rel="icon">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <title>PSK admin</title>
+    <title>조국혁신당 지방선거</title>
+    <meta content="조국혁신당 지방선거, 조국혁신당, 지방선거" name="keywords" />
     <meta content="website" property="og:type">
     <meta content="template" property="og:url">
     <meta content="yes" name="apple-mobile-web-app-capable">
     <!-- css -->
-    <link rel="stylesheet" crossorigin="" href="../../css/default.css">
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" crossorigin="" href="../css/default.css">
+    <link rel="stylesheet" href="../css/style.css">
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,32 +68,27 @@
     <div id="wrap">
         <div class="admin">
             <header>
-                <h1 class="logo"><img src="../../images/logo.svg" alt=""></h1>
+                <h1 class="logo"><img src="../images/logo.svg" alt=""></h1>
                 <nav>
-                    <ul>
+                      <ul>
                         <li class="nav_1depth">
                             <a href="">홈</a>
                         </li>
                         <li class="nav_1depth">
-                            <a href="../../member/general/list.html">회원관리</a>
+                            <a href="../member/list.html">후보자 관리</a>
                         </li>
                         <li class="nav_1depth">
-                            <a href="">상품관리</a>
+                            <a href="../board/list.html">게시판 관리</a>
                         </li>
                         <li class="nav_1depth">
-                            <a href="../../reservation/golf/list.html">예약관리</a>
+                            <a href="">배너 관리</a>
                         </li>
                         <li class="nav_1depth">
-                            <a href="../../membership/membership/application.html">멤버십/쿠폰관리</a>
+                            <a href="">팝업 관리</a>
                         </li>
-                        <li class="nav_1depth">
-                            <a href="../../board/notice/list.html">게시판관리</a>
-                        </li>
+                        
                         <li class="nav_1depth">
                             <a href="">시스템관리</a>
-                        </li>
-                        <li class="nav_1depth">
-                            <a href="../../inquiry/list.html">상담관리</a>
                         </li>
                     </ul>
                     <div class="nav_mobile_wrap">
@@ -113,32 +109,36 @@
             <div class="cont">
                 <div class="lnb">
                     <div class="lnb_tit">
-                        <h2>게시판관리</h2>
+                        <h2>게시판 관리</h2>
                     </div>
                     <ul>
                         <li class="lnb_1depth active">
-                            <a href="../../board/notice/list.html">공지사항 관리</a>
-                        </li>
-                        <li class="lnb_1depth">
-                            <a href="../../board/qna/list.html">Q&A 관리</a>
-                        </li>
-                        <li class="lnb_1depth">
-                            <a href="../../board/review/list.html">리뷰 관리</a>
+                            <a href="../board/list.html">게시판 관리</a>
                         </li>
                     </ul>
                 </div>
                 <div class="content">
-                    <h3 class="adm_title">공지사항 작성</h3>
+                    <h3 class="adm_title">게시판 작성</h3>
                     <div class="detail_wrap">
                         <div>
-                            <table class="table_a">
+                            <table class="table_a single">
+                                <tr>
+                                    <th>유형</th>
+                                    <td colspan="3"> 
+                                        <div class="btn_group_toggle">
+                                            <button class="on">공지사항</button>
+                                            <button>자료실</button>
+                                            <button>홍보실</button>
+                                        </div>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <th>제목</th>
                                     <td colspan="3"><input type="text" class="wfull"></td>
                                 </tr>
                                 <tr>
                                     <th>공개여부</th>
-                                    <td>
+                                    <td colspan="3">
                                         <div class="checkbox">
                                             <div>
                                                 <input type="radio" name="open" id="openT" checked>
@@ -147,19 +147,6 @@
                                             <div>
                                                 <input type="radio" name="open" id="openF">
                                                 <label for="openF">비공개</label>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <th>중요 여부</th>
-                                    <td>
-                                        <div class="checkbox">
-                                            <div>
-                                                <input type="radio" name="important" id="importantF" checked>
-                                                <label for="importantF">일반</label>
-                                            </div>
-                                            <div>
-                                                <input type="radio" name="important" id="importantT">
-                                                <label for="importantT">중요</label>
                                             </div>
                                         </div>
                                     </td>
@@ -233,5 +220,12 @@
             row.remove();
         }
     });
+
+    /* 토글 버튼 */
+    $(document).on('click', '.btn_group_toggle button', function () {
+        $(this).siblings().removeClass('on');
+        $(this).addClass('on');
+    });
+            
 
 </script>

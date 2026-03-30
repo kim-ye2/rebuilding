@@ -118,52 +118,54 @@
                     </ul>
                 </div>
                 <div class="content">
-                    <h3 class="adm_title">게시판 작성</h3>
+                    <h3 class="adm_title">게시판 뷰</h3>
                     <div class="detail_wrap">
                         <div>
-                            <table class="table_a single">
+                            <table class="table_a ">
                                 <tr>
                                     <th>유형</th>
-                                    <td colspan="3"> 
+                                    <td> 
                                         <div class="btn_group_toggle">
                                             <button class="on">공지사항</button>
                                             <button>자료실</button>
                                             <button>홍보실</button>
                                         </div>
                                     </td>
+                                    <th>공개여부</th>
+                                    <td >
+                                        공개
+                                    </td>
                                 </tr>
                                 <tr>
                                     <th>제목</th>
-                                    <td colspan="3"><input type="text" class="wfull" value="[공지] 조국혁신당 지방선거 홈페이지 오픈"></td>
+                                    <td colspan="3">
+                                        [공지사항] 조국혁신당 공지사항 제목
+                                    </td>
                                 </tr>
                                 <tr>
-                                    <th>공개여부</th>
-                                    <td colspan="3">
-                                        <div class="checkbox">
-                                            <div>
-                                                <input type="radio" name="open" id="openT" checked>
-                                                <label for="openT">공개</label>
-                                            </div>
-                                            <div>
-                                                <input type="radio" name="open" id="openF">
-                                                <label for="openF">비공개</label>
-                                            </div>
-                                        </div>
+                                    <th>조회수</th>
+                                    <td>
+                                        77
+                                    </td>
+                                    <th>등록일</th>
+                                    <td>
+                                        2026-03-00
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>내용</th>
                                     <td colspan="3">
-                                        <!-- 스마트에디터 필요 -->
-                                        <textarea name="" id=""></textarea>
+                                        <br/><br/>
+                                       조국혁신당 공지사항 내용이 보여집니다.<br/>
+                                       공지사항에 작성한 내용이 노출됩니다.
+                                       <br/><br/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <th>파일첨부</th>
                                     <td colspan="3">
                                         <div class="attach_file"><span>첨부한파일이름</span><button type="button" title="삭제">×</button></div>
-                                        <!--                                         
-                                        <div class="file_wrap">
+                                        <!-- <div class="file_wrap">
                                             <div class="file_row">
                                                 <input type="file">
                                                 <button type="button" class="btn_xs btn_add">추가</button>
@@ -174,7 +176,7 @@
                             </table>
                         </div>
                         <div class="modal_btn_wrap">
-                            <button class="btn_md">등록</button>
+                            <button class="btn_md">수정</button>
                             <button class="btn_md gray">취소</button>
                         </div>
                     </div>

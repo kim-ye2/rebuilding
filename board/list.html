@@ -5,13 +5,14 @@
     <meta charset="utf-8">
     <link href="/favicon.ico" rel="icon">
     <meta content="width=device-width, initial-scale=1" name="viewport">
-    <title>PSK admin</title>
+    <title>조국혁신당 지방선거</title>
+    <meta content="조국혁신당 지방선거, 조국혁신당, 지방선거" name="keywords" />
     <meta content="website" property="og:type">
     <meta content="template" property="og:url">
     <meta content="yes" name="apple-mobile-web-app-capable">
     <!-- css -->
-    <link rel="stylesheet" crossorigin="" href="../../css/default.css">
-    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" crossorigin="" href="../css/default.css">
+    <link rel="stylesheet" href="../css/style.css">
     <!-- font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -67,32 +68,27 @@
     <div id="wrap">
         <div class="admin">
             <header>
-                <h1 class="logo"><img src="../../images/logo.svg" alt=""></h1>
+                <h1 class="logo"><img src="../images/logo.svg" alt=""></h1>
                 <nav>
-                    <ul>
+                      <ul>
                         <li class="nav_1depth">
                             <a href="">홈</a>
                         </li>
                         <li class="nav_1depth">
-                            <a href="../../member/general/list.html">회원관리</a>
+                            <a href="../member/list.html">후보자 관리</a>
                         </li>
                         <li class="nav_1depth">
-                            <a href="">상품관리</a>
+                            <a href="../board/list.html">게시판 관리</a>
                         </li>
                         <li class="nav_1depth">
-                            <a href="../../reservation/golf/list.html">예약관리</a>
+                            <a href="">배너 관리</a>
                         </li>
                         <li class="nav_1depth">
-                            <a href="../../membership/membership/application.html">멤버십/쿠폰관리</a>
+                            <a href="">팝업 관리</a>
                         </li>
-                        <li class="nav_1depth">
-                            <a href="../../board/notice/list.html">게시판관리</a>
-                        </li>
+                        
                         <li class="nav_1depth">
                             <a href="">시스템관리</a>
-                        </li>
-                        <li class="nav_1depth">
-                            <a href="../../inquiry/list.html">상담관리</a>
                         </li>
                     </ul>
                     <div class="nav_mobile_wrap">
@@ -113,37 +109,34 @@
             <div class="cont">
                 <div class="lnb">
                     <div class="lnb_tit">
-                        <h2>게시판관리</h2>
+                        <h2>게시판 관리</h2>
                     </div>
                     <ul>
                         <li class="lnb_1depth active">
-                            <a href="../../board/notice/list.html">공지사항 관리</a>
-                        </li>
-                        <li class="lnb_1depth">
-                            <a href="../../board/qna/list.html">Q&A 관리</a>
-                        </li>
-                        <li class="lnb_1depth">
-                            <a href="../../board/review/list.html">리뷰 관리</a>
+                            <a href="../board/list.html">게시판 관리</a>
                         </li>
                     </ul>
                 </div>
                 <div class="content">
-                    <h3 class="adm_title">공지사항 관리</h3>
+                    <h3 class="adm_title">게시판 관리</h3>
                     <div class="search">
+                        
+                        <div class="search_input">
+                            <h5>유형</h5>
+                            <select name="" id="">
+                                <option value="">전체</option>
+                                <option value="">자료실</option>
+                                <option value="">공지사항</option>
+                                <option value="">홍보물</option>
+                            </select>
+                        </div>
+
                         <div class="search_input">
                             <h5>공개여부</h5>
                             <select name="" id="">
                                 <option value="">전체</option>
                                 <option value="">공개</option>
                                 <option value="">비공개</option>
-                            </select>
-                        </div>
-                        <div class="search_input">
-                            <h5>중요여부</h5>
-                            <select name="" id="">
-                                <option value="">전체</option>
-                                <option value="">중요</option>
-                                <option value="">일반</option>
                             </select>
                         </div>
                         <div class="search_input">
@@ -155,11 +148,8 @@
                             </div>
                         </div>
                         <div class="search_input">
-                            <h5>검색</h5>
+                            <h5>제목</h5>
                             <div class="flex">
-                                <select name="" id="">
-                                    <option value="">제목</option>
-                                </select>
                                 <input type="text">
                             </div>
                         </div>
@@ -168,7 +158,7 @@
                     <div class="line"></div>
                     <div>
                         <div class="top_btn">
-                            <p class="caption">조회건수 212 건</p>
+                            <p class="caption">조회건수 77 건</p>
                             <a href="write.html" class="btn_sm">신규등록</a>
                         </div>
                         <div class="table_wrap">
@@ -176,66 +166,53 @@
                                 <thead>
                                     <tr>
                                         <th>No.</th>
+                                        <th>유형</th>
                                         <th>제목</th>
-                                        <th>작성자</th>
-                                        <th>등록일시</th>
+                                        <th>등록자</th>
+                                        <th>등록일</th>
                                         <th>공개여부</th>
-                                        <th>중요여부</th>
                                         <th>조회수</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
                                         <td>212</td>
+                                        <td>자료실</td>
                                         <td class="tal">
                                             <a href="view.html" class="btn_under">
-                                                프라이빗 스테이 코리아 사이트 오픈
+                                               [공지] 투표일자 확정 안내
                                             </a>
                                         </td>
                                         <td>홍길동</td>
-                                        <td>2025.08.01</td>
+                                        <td>2026.03.00</td>
                                         <td>공개</td>
-                                        <td>-</td>
                                         <td>727</td>
                                     </tr>
                                     <tr>
                                         <td>211</td>
+                                        <td>공지사항</td>
                                         <td class="tal">
                                             <a href="view.html" class="btn_under">
-                                                [개인정보처리방침 변경] 더 안전한 정보 보호를 위해 내용이 변경됩니다. (0월 0일 시행)
+                                               [개인정보처리방침 변경] 더 안전한 정보 보호를 위해 내용이 변경됩니다.
                                             </a>
                                         </td>
-                                        <td>박지성</td>
-                                        <td>2025.08.01</td>
+                                        <td>홍길동</td>
+                                        <td>2026.03.00</td>
                                         <td>공개</td>
-                                        <td>중요</td>
                                         <td>727</td>
                                     </tr>
                                     <tr>
-                                        <td>211</td>
+                                        <td>210</td>
+                                        <td>홍보물</td>
                                         <td class="tal">
                                             <a href="view.html" class="btn_under">
-                                                [점검 안내] 더 안정적인 서비스를 위한 서버 점검이 진행됩니다. (0월 0일 00시)
+                                               [점검 안내] 더 안정적인 서비스를 위한 서버 점검이 진행됩니다.
                                             </a>
                                         </td>
-                                        <td>차두리</td>
-                                        <td>2025.08.01</td>
+                                        <td>홍길동</td>
+                                        <td>2026.03.00</td>
                                         <td>비공개</td>
-                                        <td>-</td>
-                                        <td>375</td>
-                                    </tr>
-                                    <tr>
-                                        <td>211</td>
-                                        <td class="tal">
-                                            <a href="view.html" class="btn_under">
-                                                000 서비스 이용 전, 반드시 확인해 주세요! (알고 가면 더 즐거운 여행 팁)
-                                            </a>
-                                        </td>
-                                        <td>허정무</td>
-                                        <td>2025.08.01</td>
-                                        <td>공개</td>
-                                        <td>-</td>
-                                        <td>1235</td>
+                                        <td>1212</td>
                                     </tr>
                                 </tbody>
                             </table>
