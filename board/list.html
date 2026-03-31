@@ -29,13 +29,13 @@
 
                 if (isPc) {
                     $('.nav_1depth')
-                    .off('.pcNav') // 중복 바인딩 방지
-                    .on('mouseenter.pcNav', function () {
-                        $(this).children('.nav_2depth').stop(true, true).slideDown(200);
-                    })
-                    .on('mouseleave.pcNav', function () {
-                        $(this).children('.nav_2depth').stop(true, true).slideUp(200);
-                    });
+                        .off('.pcNav') // 중복 바인딩 방지
+                        .on('mouseenter.pcNav', function () {
+                            $(this).children('.nav_2depth').stop(true, true).slideDown(200);
+                        })
+                        .on('mouseleave.pcNav', function () {
+                            $(this).children('.nav_2depth').stop(true, true).slideUp(200);
+                        });
                 } else {
                     $('.nav_1depth').off('.pcNav');
                     $('.nav_2depth').removeAttr('style'); // 열려있던 메뉴 초기화
@@ -70,7 +70,7 @@
             <header>
                 <h1 class="logo"><img src="../images/logo.svg" alt=""></h1>
                 <nav>
-                      <ul>
+                    <ul>
                         <li class="nav_1depth">
                             <a href="">홈</a>
                         </li>
@@ -81,12 +81,12 @@
                             <a href="../board/list.html">게시판 관리</a>
                         </li>
                         <li class="nav_1depth">
-                            <a href="">배너 관리</a>
+                            <a href="../banner/list.html">배너 관리</a>
                         </li>
                         <li class="nav_1depth">
-                            <a href="">팝업 관리</a>
+                            <a href="../popup/list.html">팝업 관리</a>
                         </li>
-                        
+
                         <li class="nav_1depth">
                             <a href="">시스템관리</a>
                         </li>
@@ -120,7 +120,7 @@
                 <div class="content">
                     <h3 class="adm_title">게시판 관리</h3>
                     <div class="search">
-                        
+
                         <div class="search_input">
                             <h5>유형</h5>
                             <select name="" id="">
@@ -180,7 +180,7 @@
                                         <td>자료실</td>
                                         <td class="tal">
                                             <a href="view.html" class="btn_under">
-                                               [공지] 투표일자 확정 안내
+                                                [공지] 투표일자 확정 안내
                                             </a>
                                         </td>
                                         <td>홍길동</td>
@@ -193,7 +193,7 @@
                                         <td>공지사항</td>
                                         <td class="tal">
                                             <a href="view.html" class="btn_under">
-                                               [개인정보처리방침 변경] 더 안전한 정보 보호를 위해 내용이 변경됩니다.
+                                                [개인정보처리방침 변경] 더 안전한 정보 보호를 위해 내용이 변경됩니다.
                                             </a>
                                         </td>
                                         <td>홍길동</td>
@@ -206,7 +206,7 @@
                                         <td>홍보물</td>
                                         <td class="tal">
                                             <a href="view.html" class="btn_under">
-                                               [점검 안내] 더 안정적인 서비스를 위한 서버 점검이 진행됩니다.
+                                                [점검 안내] 더 안정적인 서비스를 위한 서버 점검이 진행됩니다.
                                             </a>
                                         </td>
                                         <td>홍길동</td>
@@ -248,8 +248,8 @@
     }
 
     document.querySelectorAll('.modal_wrap').forEach(modal => {
-        modal.addEventListener('click', function(e){
-            if(e.target.classList.contains('modal_wrap')){
+        modal.addEventListener('click', function (e) {
+            if (e.target.classList.contains('modal_wrap')) {
                 this.style.display = 'none';
             }
         });
